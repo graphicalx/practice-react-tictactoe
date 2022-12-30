@@ -1,0 +1,1 @@
+Just a practice project to test out React skills
