@@ -1,7 +1,7 @@
 import Board from "./Board"
 import { useEffect, useReducer, useState } from 'react'
 import { checkGameStatus } from "../lib/logic"
-import { TYPE_GAME_END, TYPE_MOVE } from "../lib/consts";
+import { TYPE_GAME_END, TYPE_MOVE, TYPE_RESET } from "../lib/consts";
 
 export default function TicTacToe() {
 
@@ -10,6 +10,7 @@ export default function TicTacToe() {
         board: initialBoard,
         nextPlayer: 'X',
         winner: null,
+        showReset: false,
     }
 
     const tttReducer = (state, action) => {
@@ -35,6 +36,7 @@ export default function TicTacToe() {
                     ...state,
                     board,
                     nextPlayer,
+                    showReset: true,
                 }
 
             case TYPE_GAME_END:
@@ -52,13 +54,16 @@ export default function TicTacToe() {
                     }
                 }
 
+            case TYPE_RESET:
+                return initialState
+
             default:
                 return state;
         }
     }
 
     const [state, dispatch] = useReducer(tttReducer, initialState)
-    const { board, nextPlayer, winner } = state
+    const { board, nextPlayer, winner, showReset } = state
 
     const handleMove = (y, x) => {
         dispatch({
@@ -67,6 +72,12 @@ export default function TicTacToe() {
                 y,
                 x,
             }
+        })
+    }
+
+    const handleReset = () => {
+        dispatch({
+            type: TYPE_RESET
         })
     }
 
@@ -90,6 +101,7 @@ export default function TicTacToe() {
 
     return <>
         <Board board={board} winner={winner} onMove={handleMove} />
+        { showReset && <button className="reset" onClick={handleReset}>Start over</button>}
         <p className={"message" + (winner ? " winner" : '')}>{message}</p>
     </>
 }
