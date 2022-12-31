@@ -1,7 +1,6 @@
 /** App **/
 main {
     margin: 0 auto;
-    /* width: 30em; */
     width: auto;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
@@ -13,7 +12,6 @@ main > h1 {
 /** Board **/
 .board {
     display: inline;
-    /* border: 3px solid #ccc; */
 }
 
 .board .row {
@@ -27,6 +25,12 @@ main > h1 {
     font-size: 72px;
     text-align: center;
     cursor: pointer;
+    border: #ccc 5px solid;
+}
+
+.board.won .col {
+    background: #fafffa;
+    cursor: not-allowed;
 }
 
 .board .row:nth-child(1) .col {
@@ -43,4 +47,15 @@ main > h1 {
 
 .board .col:nth-child(3n) {
     border-left: 1px solid #ccc;
+}
+
+p.message {
+    margin-top: 2em;
+    text-align: center;
+    font-size: large;
+    font-style: italic;
+}
+
+p.winner {
+    color: red;
 }
