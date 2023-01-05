@@ -73,3 +73,14 @@ button.reset {
 button.reset:hover {
     background-color: #bbb;;
 }
+
+footer {
+    margin-top: 5em;
+    text-align: center;
+}
+
+footer > a {
+    font-size: small;
+    text-decoration: none;
+    color: darkred;
+}
