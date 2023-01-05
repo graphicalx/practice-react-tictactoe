@@ -1,7 +1,10 @@
-# Hi
-This is just a practice project to test out React skills.
+# TicTacToe: A practice project
+`practice-react-tictactoe` is a practice project to test out React skills.
 
-I plan to add some more features later
+![Image of the TicTacToe project](./tictactoe.png "TicTacToe")
 
-# branch: redux
-In this branch I moved state to Redux, which wasn't required for such a small app except I did this just to practice
+**Test it out at [https://graphicalx.github.io/practice-react-tictactoe/](https://graphicalx.github.io/practice-react-tictactoe/)**
+
+
+## 2 Jan 2023
+I moved state to Redux, which obviously wasn't required for such a small app :)
